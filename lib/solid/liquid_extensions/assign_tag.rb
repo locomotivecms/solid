@@ -5,10 +5,10 @@ module Solid
 
       tag_name :assign
 
-      def initialize(tag_name, assignment, tokens)
+      def initialize(tag_name, assignment, tokens, context = {})
         @assigned_variable, expression = assignment.split('=', 2)
         @assigned_variable = @assigned_variable.strip
-        super(tag_name, expression, tokens)
+        super(tag_name, expression, tokens, context)
       end
 
       def display(expression_result)

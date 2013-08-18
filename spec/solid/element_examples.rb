@@ -1,4 +1,5 @@
 require 'solid'
+
 shared_examples "a Solid element" do
 
   describe '.tag_name' do

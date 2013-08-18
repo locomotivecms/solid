@@ -10,9 +10,9 @@ module Solid
 
       tag_name :for
 
-      def initialize(tag_name, expression, tokens)
+      def initialize(tag_name, expression, tokens, context = {})
         @variable_name, iterable_expression = expression.split(/\s+in\s+/, 2).map(&:strip)
-        super(tag_name, iterable_expression, tokens)
+        super(tag_name, iterable_expression, tokens, context)
       end
 
       def display(collection)

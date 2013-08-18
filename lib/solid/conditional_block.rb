@@ -1,7 +1,7 @@
 class Solid::ConditionalBlock < Liquid::Block
   include Solid::Element
 
-  def initialize(tag_name, variable, tokens)
+  def initialize(tag_name, variable, tokens, context = {})
     @blocks = []
     push_block!
     super
@@ -16,7 +16,7 @@ class Solid::ConditionalBlock < Liquid::Block
     end
   end
 
-  def unknown_tag(tag, markup, tokens)
+  def unknown_tag(tag, markup, tokens, context = {})
     if tag == 'else'
       push_block!
     else

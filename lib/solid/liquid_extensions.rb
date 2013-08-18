@@ -62,11 +62,13 @@ module Solid
 
     BASE_PATH = File.join(File.expand_path(File.dirname(__FILE__)), 'liquid_extensions')
 
-    %w(if_tag unless_tag for_tag assign_tag variable).each do |mod|
+    # FIXME: Keep the original ForTag from being modified.
+    %w(if_tag unless_tag assign_tag variable).each do |mod|
       require File.join(BASE_PATH, mod)
     end
 
-    ALL = [IfTag, UnlessTag, ForTag, AssignTag, Variable]
+    # FIXME: Keep the original ForTag from being modified.
+    ALL = [IfTag, UnlessTag, AssignTag, Variable]
 
     class << self
 

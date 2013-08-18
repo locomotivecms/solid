@@ -6,7 +6,7 @@ module Solid
 
       tag_name :if
 
-      def initialize(tag_name, expression, tokens)
+      def initialize(tag_name, expression, tokens, context = {})
         @blocks = []
         push_block!(expression)
         super
@@ -23,7 +23,7 @@ module Solid
         ''
       end
 
-      def unknown_tag(tag, expression, tokens)
+      def unknown_tag(tag, expression, tokens, context = {})
         if tag == 'elsif'
           push_block!(expression)
         elsif tag == 'else'

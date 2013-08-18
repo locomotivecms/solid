@@ -4,8 +4,8 @@ module Solid
 
       tag_name :unless
 
-      def initialize(tag_name, expression, tokens)
-        super(tag_name, "!(#{expression})", tokens)
+      def initialize(tag_name, expression, tokens, context = {})
+        super(tag_name, "!(#{expression})", tokens, context)
       end
 
     end

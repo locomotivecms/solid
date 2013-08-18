@@ -5,7 +5,7 @@ module Solid::Element
     base.send(:include, Solid::Iterable)
   end
 
-  def initialize(tag_name, arguments_string, tokens) #, context)
+  def initialize(tag_name, arguments_string, tokens, context = {})
      super
      @arguments = Solid::Arguments.parse(arguments_string)
   end
