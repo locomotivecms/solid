@@ -5,8 +5,8 @@ require "solid/version"
 Gem::Specification.new do |s|
   s.name        = "locomotivecms_solid"
   s.version     = Solid::VERSION
-  s.authors     = ["Jean Boussier", "Yannick François"]
-  s.email       = ["jean.boussier@tigerlilyapps.com", "yannick@tigerlilyapps.com"]
+  s.authors     = ["Jean Boussier", "Yannick François", "Didier Lafforgue"]
+  s.email       = ["jean.boussier@tigerlilyapps.com", "yannick@tigerlilyapps.com", "didier.lafforgue@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Helpers for easily creating custom Liquid tags and block}
   s.description = %q{The Solid gem from the TigerLily team but modified to work with LocomotiveCMS}
