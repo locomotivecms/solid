@@ -238,6 +238,10 @@ describe Solid::Arguments do
         }]
       end
 
+      it "should not be disturbed by a dot into the key" do
+        parse(':"foo.bar" => "bar"').should be == [{'foo.bar' => 'bar'}]
+      end
+
     end
 
   end

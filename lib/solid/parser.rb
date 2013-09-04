@@ -213,6 +213,10 @@ class Solid::Parser
     string_content
   end
 
+  def handle_dyna_symbol(string_content)
+    Literal.new(string_content.first[1])
+  end
+
   # # /bb|[^b]{2}/
   # [[:@tstring_content, "bb|[^b]{2}", [1, 2]]].first.first
   # TODO: handle regexp interpolation
