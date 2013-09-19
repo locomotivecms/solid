@@ -16,10 +16,11 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
   s.add_development_dependency "i18n"
+  s.add_development_dependency "ruby_parser", "~> 3.2"
   s.add_development_dependency "activesupport", "~> 3"
-  # s.add_runtime_dependency "locomotive_liquid", '~> 2.4.2'
+
+  # s.add_runtime_dependency "locomotivecms-liquid", "~> 2.5.2"
 end

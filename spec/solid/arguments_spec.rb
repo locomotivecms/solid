@@ -239,7 +239,7 @@ describe Solid::Arguments do
       end
 
       it "should not be disturbed by a dot into the key" do
-        parse(':"foo.bar" => "bar"').should be == [{'foo.bar' => 'bar'}]
+        parse(':"foo.bar" => "bar"').should be == [{:'foo.bar' => 'bar'}]
       end
 
     end
@@ -258,7 +258,7 @@ describe Solid::Arguments do
 
     it "should raise a Solid::SyntaxError on unknown constructs" do
       expect {
-        parse('{}[]')
+        parse('{}\[]')
       }.to raise_error(Solid::SyntaxError)
     end
 
