@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake"
   s.add_development_dependency "i18n"
   s.add_development_dependency "activesupport", "~> 3"
-  s.add_runtime_dependency "locomotive_liquid", '~> 2.4.2'
+  # s.add_runtime_dependency "locomotive_liquid", '~> 2.4.2'
 end
