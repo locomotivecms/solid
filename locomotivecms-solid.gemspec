@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "solid/version"
 
 Gem::Specification.new do |s|
-  s.name        = "locomotivecms_solid"
+  s.name        = "locomotivecms-solid"
   s.version     = Solid::VERSION
   s.authors     = ["Jean Boussier", "Yannick François", "Didier Lafforgue"]
   s.email       = ["jean.boussier@tigerlilyapps.com", "yannick@tigerlilyapps.com", "didier.lafforgue@gmail.com"]
