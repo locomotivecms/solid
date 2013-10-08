@@ -16,7 +16,7 @@ class Solid::ConditionalBlock < Liquid::Block
     end
   end
 
-  def unknown_tag(tag, markup, tokens, context = {})
+  def unknown_tag(tag, markup, tokens)
     if tag == 'else'
       push_block!
     else

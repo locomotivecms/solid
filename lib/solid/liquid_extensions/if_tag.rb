@@ -23,7 +23,7 @@ module Solid
         ''
       end
 
-      def unknown_tag(tag, expression, tokens, context = {})
+      def unknown_tag(tag, expression, tokens)
         if tag == 'elsif'
           push_block!(expression)
         elsif tag == 'else'
