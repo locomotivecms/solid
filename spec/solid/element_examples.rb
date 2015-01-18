@@ -22,7 +22,7 @@ shared_examples "a Solid element" do
     let(:element) do
       described_class.context_attribute :current_user
       Solid::Arguments.stub(:parse).with('ARGUMENTS_STRING')
-      element = described_class.new('name', 'ARGUMENTS_STRING', ['{% endname %}'])
+      element = described_class.parse('name', 'ARGUMENTS_STRING', ['{% endname %}'], {})
     end
 
     it 'should define a custom accessor to the rendered context' do
@@ -42,11 +42,11 @@ shared_examples "a Solid element" do
 
     it 'should instanciate a Solid::Arguments with his arguments_string' do
       Solid::Arguments.should_receive(:parse).with('ARGUMENTS_STRING')
-      described_class.new('name', 'ARGUMENTS_STRING', ['{% endname %}'])
+      described_class.parse('name', 'ARGUMENTS_STRING', ['{% endname %}'], {})
     end
 
     it 'should store his Solid:Arguments instance' do
-      element = described_class.new('name', '1', ['{% endname %}'])
+      element = described_class.parse('name', '1', ['{% endname %}'], {})
       element.arguments.should be_a(Solid::Arguments)
     end
 
@@ -56,7 +56,7 @@ shared_examples "a Solid element" do
 
     it 'should force developper to define it in child class' do
       Solid::Arguments.stub(:parse).with('ARGUMENTS_STRING')
-      element = described_class.new('name', 'ARGUMENTS_STRING', ['{% endname %}'])
+      element = described_class.parse('name', 'ARGUMENTS_STRING', ['{% endname %}'], {})
       expect{
         element.display
       }.to raise_error(NotImplementedError)

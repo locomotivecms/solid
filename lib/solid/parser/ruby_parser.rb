@@ -12,6 +12,7 @@ class Solid::Parser::RubyParser < Solid::Parser
 
   def parse
     begin
+      puts @expression.inspect
       @sexp = ::RubyParser.new.parse(@expression)
     rescue ::RubyParser::SyntaxError => exc
       raise Solid::SyntaxError.new(exc.message)

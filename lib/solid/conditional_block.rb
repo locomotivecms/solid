@@ -1,35 +1,34 @@
 class Solid::ConditionalBlock < Liquid::Block
-  include Solid::Element
 
-  def initialize(tag_name, variable, tokens, context = {})
-    @blocks = []
-    push_block!
-    super
-  end
+  include Solid::Element
 
   def render(context)
     with_context(context) do
       display(*arguments.interpolate(context)) do |condition_satisfied|
-        block = condition_satisfied ? @blocks.first : @blocks[1]
-        render_all(block, context) if block
+        render_with_condition(condition_satisfied, context)
       end
     end
   end
 
+  def render_with_condition(condition_satisfied, context)
+    _body = nil
+
+    if condition_satisfied
+      _body = @condition_satisfied_body
+    else
+      return '' if @condition_satisfied_body.nil?
+    end
+
+    (_body || @body).render(context)
+  end
+
   def unknown_tag(tag, markup, tokens)
     if tag == 'else'
-      push_block!
+      @condition_satisfied_body = @body.clone
+      @body.instance_variable_set(:@nodelist, [])
     else
       super
     end
-  end
-
-  private
-
-  def push_block!
-    block = []
-    @blocks.push(block)
-    @nodelist = block
   end
 
 end

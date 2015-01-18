@@ -20,7 +20,7 @@ describe Solid::Block do
 
     let(:tokens) { ["dummy", "{% enddummy %}", "outside"] }
 
-    subject{ DummyBlock.new('dummy', 'condition', tokens) }
+    subject{ DummyBlock.parse('dummy', 'condition', tokens, {}) }
 
     it 'yielding should render the block content' do
       subject.render(Liquid::Context.new('condition' => true)).should be == 'dummy'

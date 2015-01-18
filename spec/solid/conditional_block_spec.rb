@@ -2,6 +2,8 @@ require 'spec_helper'
 
 class IfPresent < Solid::ConditionalBlock
 
+  tag_name :ifpresent
+
   def display(string)
     yield(!string.strip.empty?)
   end
@@ -14,9 +16,9 @@ describe Solid::ConditionalBlock do
 
   describe '#display' do
 
-    let(:tokens) { ["present", "{% else %}", "blank", "{% endifpresent %}"] }
+    let(:template) { "{% ifpresent mystring %}present{% else %}blank{% endifpresent %}"}
 
-    subject{ IfPresent.new('ifpresent', 'mystring', tokens) }
+    subject { Liquid::Template.parse(template) }
 
     it 'yielding true should render the main block' do
       context = Liquid::Context.new('mystring' => 'blah')
@@ -28,10 +30,15 @@ describe Solid::ConditionalBlock do
       subject.render(context).should be == 'blank'
     end
 
-    it 'yielding false without a `else` block does not render anything' do
-      context = Liquid::Context.new('mystring' => '')
-      subject = IfPresent.new('ifpresent', 'mystring', ['present', '{% endifpresent %}'])
-      subject.render(context).should be_nil
+    context 'without a `else` block' do
+
+      let(:template) { "{% ifpresent mystring %}present{% endifpresent %}"}
+
+      it 'yielding false should not render anything' do
+        context = Liquid::Context.new('mystring' => '')
+        subject.render(context).should be == ''
+      end
+
     end
 
   end
