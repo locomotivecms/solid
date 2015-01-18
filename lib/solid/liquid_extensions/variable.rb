@@ -4,11 +4,10 @@ module Solid
       extend ClassHighjacker
 
       def initialize(markup, options={})
-        puts markup.inspect
-        puts @name
         super
-        puts @name
-        @expression = Solid::Parser.parse(@name)
+        if markup =~ /(#{::Liquid::QuotedFragment})(.*)/om
+          @expression = Solid::Parser.parse($1)
+        end
       end
 
       def render(context)
