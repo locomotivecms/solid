@@ -20,7 +20,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake"
   s.add_development_dependency "i18n"
   s.add_development_dependency "ruby_parser", "~> 3.2"
-  s.add_development_dependency "activesupport", "~> 3"
+  s.add_development_dependency "activesupport", "~> 4.2"
 
-  # s.add_runtime_dependency "locomotivecms-liquid", "~> 2.6.0"
+  # TODO
+  s.add_runtime_dependency "locomotivecms-liquid", "4.0.0.alpha"
 end
