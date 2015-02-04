@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "activesupport", "~> 4.2"
 
   # TODO
-  s.add_runtime_dependency "locomotivecms-liquid", "4.0.0.alpha1"
+  s.add_runtime_dependency "locomotivecms-liquid", "~> 4.0.0.alpha2"
 end
